@@ -1,0 +1,5 @@
+# Ignore uploaded image files by multer
+*
+
+# Except this file
+!.gitignore
