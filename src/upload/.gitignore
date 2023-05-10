@@ -1,5 +1,4 @@
-# Ignore uploaded image files by multer
-*
+# This folder is used for temporary storage while the image is being uploaded / updated to google drive API
 
-# Except this file
+*
 !.gitignore
