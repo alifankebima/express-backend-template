@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 
-const configMail = nodemailer.createTransport({
+const email = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 587,
     secure: false,
@@ -12,21 +12,21 @@ const configMail = nodemailer.createTransport({
 });
 
 const sendMail = (emailReceiver, token, message) => {
-    configMail.sendMail({
+    email.sendMail({
         from: process.env.NODEMAILER_EMAIL_ADDRESS,
         to: emailReceiver,
         subject: message,
-        html: `<b>${process.env.NODEMAILER_FRONTEND_URL}/user/verify?token=${token}</b>`,
+        html: `<b>${process.env.FRONTEND_URL}/user/verify?token=${token}</b>`,
     });
     return;
 }
 
 const sendForgotPassword = (emailReceiver, token, message) => {
-    configMail.sendMail({
+    email.sendMail({
         from: process.env.NODEMAILER_EMAIL_ADDRESS,
         to: emailReceiver,
         subject: message,
-        html: `<b>${process.env.NODEMAILER_FRONTEND_URL}/user/reset-password?token=${token}</b>`,
+        html: `<b>${process.env.FRONTEND_URL}/user/reset-password?token=${token}</b>`,
     });
     return;
 }

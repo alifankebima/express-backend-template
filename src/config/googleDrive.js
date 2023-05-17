@@ -24,7 +24,6 @@ const auth = new google.auth.GoogleAuth({
     ]
 });
 
-// Hit google drive API
 const driveService = google.drive({
     version: 'v3',
     auth: auth,
@@ -32,7 +31,6 @@ const driveService = google.drive({
 
 const uploadImage = async (imageFile) => {
     const response = await driveService.files.create({
-        // File name and google drive parent folder
         resource: {
             name: imageFile.filename,
             parents: [process.env.GOOGLE_DRIVE_PARENT_FOLDER],
