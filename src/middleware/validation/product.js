@@ -26,6 +26,9 @@ const validateUpdateProduct = async (req, res, next) => {
             description: Joi.string()
         })
         await schema.validateAsync(req.body);
+
+        const id_user = req.payload.id;
+        
         next();
     } catch (error) {
         console.log(error);

@@ -1,5 +1,3 @@
-//Json response template
-
 const response = (res, result, status, message, pagination) => {
     const resultPrint = {};
     if (status >= 200 && status <= 299) {
@@ -12,6 +10,8 @@ const response = (res, result, status, message, pagination) => {
     resultPrint.message = message || null;
     resultPrint.pagination = pagination || null;
     res.status(status).json(resultPrint);
-};
+}
 
-module.exports = { response };
+module.exports = { 
+    response 
+}
